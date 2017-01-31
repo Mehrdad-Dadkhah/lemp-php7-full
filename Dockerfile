@@ -4,8 +4,12 @@ MAINTAINER Mehrdad Dadkhah <mehrdad@dadkhah.me>
 
 ENV fpm_conf /usr/local/etc/php-fpm.d/www.conf
 
-RUN apt-get update -y && \
-	apt-get install -y nginx && \
+RUN curl http://nginx.org/keys/nginx_signing.key --output nginx_signing.key && \
+    apt-key add nginx_signing.key && \
+    echo 'deb http://nginx.org/packages/debian/ jessie nginx' >> /etc/apt/sources.list && \
+    echo 'deb-src http://nginx.org/packages/debian/ jessie nginx' >> /etc/apt/sources.list && \
+    apt-get update -y && \
+    apt-get install -y nginx && \
     apt-get install -y supervisor
 
 RUN mkdir -p /etc/nginx/sites-enabled/ && \
