@@ -20,6 +20,8 @@ RUN mkdir -p /etc/nginx/sites-enabled/ && \
 RUN mkdir -p /var/log/supervisor
 
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./www.conf /usr/local/etc/php-fpm.d/
+COPY ./zz-docker.conf /usr/local/etc/php-fpm.d/
 
 WORKDIR /var/www/html
 
