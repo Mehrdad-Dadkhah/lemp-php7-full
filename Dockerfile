@@ -1,4 +1,4 @@
-FROM mehrdadkhah/php7:latest
+FROM mehrdadkhah/php7:7.2
 
 MAINTAINER Mehrdad Dadkhah <mehrdad@dadkhah.me>
 
